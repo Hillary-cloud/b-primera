@@ -30,7 +30,14 @@ class AddCategoryComponent extends Component
         $category->slug = $this->slug;
         $category->save();
         session()->flash('message','Category added successfully');
+        $this->resetInput();
     }
+
+    public function resetInput(){
+        $this->name = null;
+        $this->slug = null;
+    }
+
     public function render()
     {
         return view('livewire.admin.add-category-component')->layout('layouts.base');

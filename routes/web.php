@@ -14,6 +14,9 @@ use App\Http\Livewire\Admin\AddPhotoComponent;
 use App\Http\Livewire\Admin\EditPhotoComponent;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\ViewPhotoDetailsController;
+use App\Http\Livewire\Admin\SliderComponent;
+use App\Http\Livewire\Admin\AddSliderComponent;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,6 +46,10 @@ Route::middleware('auth')->group(function () {
     // Route::get('/admin/photo/{slug}', ViewPhotoComponent::class)->name('admin.view-photo');
     Route::get('/admin/photo/edit/{photo_slug}', EditPhotoComponent::class)->name('admin.edit-photo');
     Route::get('/admin/photo/{slug}', [ViewController::class, 'viewPhoto'])->name('admin.view-photo');
+
+    // slide
+    Route::get('/admin/slide', SliderComponent::class)->name('admin.slides');
+    Route::get('/admin/slide/add', AddSliderComponent::class)->name('admin.add-slide');
 });
 
 

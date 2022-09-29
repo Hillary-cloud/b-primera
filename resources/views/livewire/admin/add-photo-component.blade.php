@@ -75,3 +75,14 @@
         </div>
     </div>
 </div>
+@push('scripts')
+    <script>
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+@endpush

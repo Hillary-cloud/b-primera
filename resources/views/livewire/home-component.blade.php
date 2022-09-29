@@ -158,17 +158,19 @@
 
     <!-- <span class="float-left"><a href="">More Galleries</a></span> -->
     <div class="row">
-        <a href="" class="text-end" style="text-decoration: none; color:
+        <a href="{{route('photo')}}" class="text-end" style="text-decoration: none; color:
             rgb(175, 146, 73);">More
             Galleries <i class="fa fa-angle-double-right"></i></a>
         <div class="col" data-aos="fade-left" data-aos-duration="2000">
             <div class="owl-carousel property-carousel owl-theme">
                @foreach ($photos as $photo)
-                    <div class="card" >
-                        <a href="{{route('view-photo-details',$photo->slug)}}">
-                            <img src="{{asset('storage/cover-photos/'.$photo->main_image)}}" alt="image"  />
-                        </a>
-                    </div>
+               @if ($photo->status == '1')
+               <div class="card" >
+                    <a href="{{route('view-photo-details',$photo->slug)}}">
+                        <img src="{{asset('storage/cover-photos/'.$photo->main_image)}}" alt="image"  />
+                    </a>
+                </div>
+               @endif
                 @endforeach
             </div>
         </div>

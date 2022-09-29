@@ -82,8 +82,8 @@ body{
     <body style="background-color: black">
         <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
             <div class="container">
-                <a class="navbar-brand" href="#">
-                    <img src="assets/images/B' Primera Studios LOGO2.jpg" width="100px" alt="">
+                <a class="navbar-brand" href="{{route('/')}}">
+                    <img src="{{asset("assets/images/B' Primera Studios LOGO2.jpg")}}" width="100px" alt="logo">
                 </a>
                 <button class="navbar-toggler" type="button"
                     data-bs-toggle="collapse"
@@ -115,7 +115,7 @@ body{
                             </a>
                             <ul class="dropdown-menu"
                                 aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{{route('photo')}}"><i class="fa fa-camera"></i> Photo</a></li>
+                                <li><a class="dropdown-item" href="{{route('photo')}}"><i class="fa fa-image"></i> Photo</a></li>
                                 <li><a class="dropdown-item" href="#"><i class="fa fa-video-camera"></i> Video</a></li>
                             </ul>
                         </li>
@@ -132,7 +132,7 @@ body{
                                     <li><a class="dropdown-item" href="{{route('admin.photos')}}"><i class="fa fa-camera"></i> Photo</a></li>
                                     <li><a class="dropdown-item" href=""><i class="fa fa-video-camera"></i> Video</a></li>
                                     <li><a class="dropdown-item" href=""> <i class="fa fa-image"></i> Collage</a></li>
-                                    <li><a class="dropdown-item" href=""><i class="fa fa-users"></i> Slide</a></li>
+                                    <li><a class="dropdown-item" href="{{route('admin.slides')}}"><i class="fa fa-users"></i> Slide</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>

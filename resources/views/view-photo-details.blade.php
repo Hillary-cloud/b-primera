@@ -1,10 +1,10 @@
 @extends('layouts.view-base')
 @section('content')
     {{-- Be like water. --}}
-    <div class="container mt-3">
+    <div class="container mt-4">
         <div class="header mb-2">
             <span class="float-start text-white"><h2>{{$photo->category->name}}</h2></span>
-            <span class="float-end"><a href="{{route('/')}}">Back</a></span>
+            {{-- <span class="float-end"><a href="{{route('/')}}">Back</a></span> --}}
         </div><br><br>
         <div class="row">
             <div class="cover-photo" data-aos="fade-left" data-aos-duration="2000">

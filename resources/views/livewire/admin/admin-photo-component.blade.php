@@ -23,7 +23,7 @@
                             @if (count($photos) > 0)
                             <thead>
                                 <tr>
-                                    <th>id</th>
+                                    {{-- <th>id</th> --}}
                                     <th>Photo</th>
                                     <th>Title</th>
                                     <th>Description</th>
@@ -38,7 +38,7 @@
                                 
                                     @foreach ($photos as $photo)
                                         <tr>
-                                            <td>{{$photo->id}}</td>
+                                            {{-- <td>{{$photo->id}}</td> --}}
                                             <td><img src="{{asset('storage/cover-photos/'.$photo->main_image)}}" alt="" width="50px"></td>
                                             <td>{{$photo->title}}</td>
                                             <td>{{$photo->description}}</td>
@@ -72,3 +72,14 @@
     </div>
 </div>
 </div>
+@push('scripts')
+    <script>
+        function scrollToTop() {
+            window.scrollTo(0, 0);
+        }
+    </script>
+
+    <script>
+        AOS.init();
+    </script>
+@endpush

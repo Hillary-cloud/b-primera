@@ -16,6 +16,7 @@ use App\Http\Controllers\ViewController;
 use App\Http\Controllers\ViewPhotoDetailsController;
 use App\Http\Livewire\Admin\SliderComponent;
 use App\Http\Livewire\Admin\AddSliderComponent;
+use App\Http\Livewire\Admin\EditSliderComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,7 @@ Route::middleware('auth')->group(function () {
     // slide
     Route::get('/admin/slide', SliderComponent::class)->name('admin.slides');
     Route::get('/admin/slide/add', AddSliderComponent::class)->name('admin.add-slide');
+    Route::get('/admin/slide/edit/{name}', EditSliderComponent::class)->name('admin.edit-slide');
 });
 
 

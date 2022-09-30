@@ -5,11 +5,22 @@ namespace App\Http\Livewire\Admin;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Slide;
+use Illuminate\Support\Facades\File;
 
 class SliderComponent extends Component
 {
     use WithPagination;
     protected $paginationTheme = 'bootstrap';
+
+    public function deleteSlide($id){
+        $slide = Slide::find($id);
+        $path = 'storage/slide-slides/'.$slide->image;
+        if (File::exists($path)) {
+            File::delete($path);
+        }
+        $slide->delete();
+        session()->flash('message','slide removed successfully');
+    }
 
     public function render()
     {

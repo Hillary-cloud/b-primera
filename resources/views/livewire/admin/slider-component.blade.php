@@ -38,10 +38,10 @@
                                             <td>{{$slide->status}}</td>
 
                                             <td>
-                                                {{-- <a href="{{route('admin.edit-slide',$slide->slug)}}"><i class="fa fa-edit fa-2x"></i></a> --}}
+                                                <a href="{{route('admin.edit-slide',$slide->name)}}"><i class="fa fa-edit fa-2x"></i></a>
                                             </td>
                                             <td>
-                                                {{-- <a href="" wire:click.prevent="deleteslide({{$slide->id}})" onclick="return confirm('You are about to delete this slide')" style="margin-left: 10px;"><i class="fa fa-trash fa-2x"></i></a> --}}
+                                                <a href="" wire:click.prevent="deleteSlide({{$slide->id}})" onclick="return confirm('You are about to delete this slide')" style="margin-left: 10px;"><i class="fa fa-trash fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach

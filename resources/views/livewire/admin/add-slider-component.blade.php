@@ -20,6 +20,9 @@
                         <div class="form-group">
                             <label for="slide_image">Slide Image</label>
                             <input type="file" class="form-control" id="upload{{$iteration}}" wire:model="slide_image" >
+                            @if ($slide_image)
+                            <img src="{{$slide_image->temporaryUrl()}}" width="120" />
+                            @endif
                         </div>
                         
                         <button type="submit" class="btn btn-primary mt-2">Submit</button>

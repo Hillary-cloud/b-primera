@@ -51,3 +51,9 @@ body{
 .navbar{
     background-color: black;
 }
+.whatsapp-chat{
+    bottom: 10px;
+    left: 10px;
+    position: fixed;
+    z-index: 5;
+  }

@@ -6,8 +6,8 @@
         <div class="container">
             <div class="card ">
                 <div class="card-header">
-                <h3 class="float-start">Slides</h3>
-                <span class="float-end"><a href="{{route('admin.add-slide')}}"><button class="btn btn-success">+</button></a></span>
+                <h3 class="float-start">Collages</h3>
+                <span class="float-end"><a href="{{route('admin.add-collage')}}"><button class="btn btn-success">+</button></a></span>
                 </div>
                 <div class="card-body">
                     @if (session('message'))
@@ -17,11 +17,11 @@
                     @endif
                     <div class="table-responsive">
                         <table class="table table-striped table-hover"> 
-                            @if (count($slides) > 0)
+                            @if (count($collages) > 0)
                             <thead>
                                 <tr>
                                     {{-- <th>id</th> --}}
-                                    <th>Slide</th>
+                                    <th>Collage</th>
                                     <th>Name</th>
                                     <th>Status</th>
                                     <th>Edit</th>
@@ -30,28 +30,28 @@
                             </thead>
                             <tbody>
                                 
-                                    @foreach ($slides as $slide)
+                                    @foreach ($collages as $collage)
                                         <tr>
-                                            {{-- <td>{{$slide->id}}</td> --}}
-                                            <td><img src="{{asset('storage/slide-photos/'.$slide->slide_image)}}" alt="" width="50px"></td>
-                                            <td>{{$slide->name}}</td>
-                                            <td>{{$slide->status}}</td>
+                                            {{-- <td>{{$collage->id}}</td> --}}
+                                            <td><img src="{{asset('storage/collage-photos/'.$collage->collage_image)}}" alt="" width="50px"></td>
+                                            <td>{{$collage->name}}</td>
+                                            <td>{{$collage->status}}</td>
 
                                             <td>
-                                                <a href="{{route('admin.edit-slide',$slide->name)}}"><i class="fa fa-edit fa-2x"></i></a>
+                                                <a href="{{route('admin.edit-collage',$collage->name)}}"><i class="fa fa-edit fa-2x"></i></a>
                                             </td>
                                             <td>
-                                                <a href="" wire:click.prevent="deleteSlide({{$slide->id}})" onclick="return confirm('You are about to delete this slide')" style="margin-left: 10px;"><i class="fa fa-trash fa-2x"></i></a>
+                                                <a href="" wire:click.prevent="deleteCollage({{$collage->id}})" onclick="return confirm('You are about to delete this collage')" style="margin-left: 10px;"><i class="fa fa-trash fa-2x"></i></a>
                                             </td>
                                         </tr>
                                     @endforeach
                             </tbody>
                             @else
-                            <p class="text-center text-danger">No slide found</p>
+                            <p class="text-center text-danger">No collage found</p>
                         @endif
                         </table>
                         <div>
-                            {{ $slides->links() }}
+                            {{ $collages->links() }}
                         </div>
                         
                     </div>

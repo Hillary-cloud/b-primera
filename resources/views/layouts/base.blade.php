@@ -79,7 +79,7 @@ body{
         </style>
         @livewireStyles
     </head>
-    <body style="background-color: black">
+    <body style="background-color: black;">
         <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
             <div class="container">
                 <a class="navbar-brand" href="{{route('/')}}">
@@ -101,8 +101,8 @@ body{
                                 href="{{route('/')}}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
-                                href="{{route('/')}}">About</a>
+                            <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" aria-current="page"
+                                href="{{route('about')}}">About</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#service">Services</a>
@@ -113,10 +113,10 @@ body{
                                 data-bs-toggle="dropdown" aria-expanded="false">
                                 Gallery
                             </a>
-                            <ul class="dropdown-menu"
+                            <ul class="dropdown-menu dropdown-menu-dark"
                                 aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{route('photo')}}"><i class="fa fa-image"></i> Photo</a></li>
-                                <li><a class="dropdown-item" href="#"><i class="fa fa-video-camera"></i> Video</a></li>
+                                {{-- <li><a class="dropdown-item" href="#"><i class="fa fa-video-camera"></i> Video</a></li> --}}
                             </ul>
                         </li>
                         @if (Route::has('login'))
@@ -127,11 +127,11 @@ body{
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     My Account ({{Auth::user()->name}})
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                                     <li><a class="dropdown-item" href="{{route('admin.categories')}}"><i class="fa fa-tachometer"></i> Category</a></li>
-                                    <li><a class="dropdown-item" href="{{route('admin.photos')}}"><i class="fa fa-camera"></i> Photo</a></li>
-                                    <li><a class="dropdown-item" href=""><i class="fa fa-video-camera"></i> Video</a></li>
-                                    <li><a class="dropdown-item" href=""> <i class="fa fa-image"></i> Collage</a></li>
+                                    <li><a class="dropdown-item" href="{{route('admin.photos')}}"><i class="fa fa-image"></i> Photo</a></li>
+                                    {{-- <li><a class="dropdown-item" href=""><i class="fa fa-video-camera"></i> Video</a></li> --}}
+                                    <li><a class="dropdown-item" href="{{route('admin.collages')}}"> <i class="fa fa-camera"></i> Collage</a></li>
                                     <li><a class="dropdown-item" href="{{route('admin.slides')}}"><i class="fa fa-users"></i> Slide</a></li>
                                     <li>
                                         <hr class="dropdown-divider">
@@ -157,6 +157,13 @@ body{
         </nav>
 
         {{$slot}}
+
+        <div class="whatsapp-chat">
+            <a href="https://wa.me/+2348122232325?text=I'm%20interested%20in%20your%20service" target="_blank">
+                <img src="{{ asset('assets/images/whatsapp.png') }}" width="60px" height="60px" class="m-2"
+                    alt="">
+            </a>
+        </div>
 
         <div class="footer py-5 text-light" style="background-color: black" data-aos="flip-up"
         data-aos-duration="2000">
@@ -228,7 +235,7 @@ body{
     <script src="assets/js/owl.carousel.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
- 
+        {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.0/sweetalert.min.js"></script> --}}
         
             @livewireScripts
             @stack('scripts')

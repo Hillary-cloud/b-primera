@@ -109,8 +109,8 @@
                             href="{{ route('/') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" aria-current="page"
-                            href="{{ route('/') }}">About</a>
+                        <a class="nav-link {{ Request::is('about') ? 'active' : '' }}" aria-current="page"
+                            href="{{ route('about') }}">About</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#service">Services</a>
@@ -120,11 +120,11 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Gallery
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ route('photo') }}"><i class="fa fa-image"></i>
                                     Photo</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa fa-video-camera"></i> Video</a>
-                            </li>
+                            {{-- <li><a class="dropdown-item" href="#"><i class="fa fa-video-camera"></i> Video</a>
+                            </li> --}}
                         </ul>
                     </li>
                     @if (Route::has('login'))
@@ -135,14 +135,14 @@
                             data-bs-toggle="dropdown" aria-expanded="false">
                             My Account ({{ Auth::user()->name }})
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="{{ route('admin.categories') }}"><i
                                         class="fa fa-tachometer"></i> Category</a></li>
-                            <li><a class="dropdown-item" href="{{ route('admin.photos') }}"><i class="fa fa-camera"></i>
+                            <li><a class="dropdown-item" href="{{ route('admin.photos') }}"><i class="fa fa-image"></i>
                                     Photo</a></li>
-                            <li><a class="dropdown-item" href=""><i class="fa fa-video-camera"></i>
-                                    Video</a></li>
-                            <li><a class="dropdown-item" href=""> <i class="fa fa-image"></i> Collage</a>
+                            {{-- <li><a class="dropdown-item" href=""><i class="fa fa-video-camera"></i> --}}
+                                    {{-- Video</a></li> --}}
+                            <li><a class="dropdown-item" href="{{route('admin.collages')}}"> <i class="fa fa-camera"></i> Collage</a>
                             </li>
                             <li><a class="dropdown-item" href="{{route('admin.slides')}}"><i class="fa fa-users"></i> Slide</a>
                             </li>
@@ -170,6 +170,13 @@
     </nav>
 
     @yield('content')
+
+    <div class="whatsapp-chat">
+        <a href="https://wa.me/+2348122232325?text=I'm%20interested%20in%20your%20service" target="_blank">
+            <img src="{{ asset('assets/images/whatsapp.png') }}" width="60px" height="60px" class="m-2"
+                alt="">
+        </a>
+    </div>
 
     <div class="footer py-5 text-light" style="background-color: black" data-aos="flip-up" data-aos-duration="2000">
         <div class="card" style="background-color: black">

@@ -1,32 +1,27 @@
 <div>
     <div 
     id="carouselExampleCaptions"
-    class="carousel slide"
+    class="carousel slide "
     data-bs-ride="carousel" data-aos="fade-right"
     data-aos-duration="2000">
+  
     <div class="carousel-indicators">
-        <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="0"
-            class="active"
-            aria-current="true"
-            aria-label="Slide 1"></button>
-        <button
-            type="button"
-            data-bs-target="#carouselExampleCaptions"
-            data-bs-slide-to="1"
-            aria-label="Slide 2"></button>
+        @foreach ($slides as $slide)
+            <button
+                type="button"
+                data-bs-target="#carouselExampleCaptions"
+                data-bs-slide-to="{{$loop->index}}"
+                class="{{$loop->first ? 'active' : ''}}">
+            </button>
+        @endforeach
+        
     </div>
     <div class="carousel-inner">
-        <div class="carousel-item active">
-            <img
-                src="assets/images/mega_accessories_2.jpg"
-                class="d-block w-100"
-                alt="..."
-                />
-            <div class="carousel-caption bg-black d-none d-md-block">
-                <h5>First slide label</h5>
+        @foreach ($slides as $slide)
+        <div class="carousel-item {{$loop->first ? 'active' : ''}}">
+            <img src="{{asset('storage/slide-photos/'.$slide->slide_image)}}" alt="image" style="width: 100%; background:#000; opacity: 0.4"  />
+            <div class="carousel-caption d-none d-md-block" style="bottom: 35%; " >
+                <h5 style="font-size: 80px; font-weight:500px; color: rgb(175, 146, 73);">{{$slide->name}}</h5>
                 <p>
                     Some representative placeholder content for the
                     first
@@ -34,21 +29,7 @@
                 </p>
             </div>
         </div>
-        <div class="carousel-item">
-            <img
-                src="assets/images/mega_accessories_3.jpg"
-                class="d-block w-100"
-                alt="..."
-                />
-            <div class="carousel-caption bg-black d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>
-                    Some representative placeholder content for the
-                    third
-                    slide.
-                </p>
-            </div>
-        </div>
+        @endforeach
     </div>
     <button
         class="carousel-control-prev"
@@ -70,7 +51,7 @@
     
     <!-- our services section -->
     <div class="container py-2" id="service">
-    <h1 class="text-center py-3" data-aos="fade-left"
+    <h1 class="text-center py-5" data-aos="fade-left"
         data-aos-duration="2000" style="color: rgb(175, 146, 73);">
         <strong>Our Services</strong>
         <hr />
@@ -139,11 +120,9 @@
         <hr />
     </h1>
     <div class="row">
-    
-        <img data-aos="zoom-in" data-aos-duration="2000"
-            src="assets/images/CollageFrame_1663154036129.png" alt="">
-        <img data-aos="flip-down" data-aos-duration="2000"
-            src="assets/images/CollageFrame_1663268087476.png" alt="">
+    @foreach ($collages as $collage)
+        <img data-aos="zoom-in" data-aos-duration="2000" class="img-fluid" src="{{asset('storage/collage-photos/'.$collage->collage_image)}}" alt="image"  />
+    @endforeach
     </div>
     <hr />
     </div>

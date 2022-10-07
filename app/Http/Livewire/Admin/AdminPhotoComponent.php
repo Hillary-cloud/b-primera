@@ -17,7 +17,7 @@ class AdminPhotoComponent extends Component
     public $search = '';
 
     public function deletePhoto($id){
-        $photo = Photo::find($id);
+        $photo = Photo::findOrfail($id);
         $path = 'storage/cover-photos/'.$photo->image;
         if (File::exists($path)) {
             File::delete($path);
@@ -34,7 +34,7 @@ class AdminPhotoComponent extends Component
         ->where('title', 'like', '%'.$this->search.'%')
         ->orWhere('categories.name', 'like', '%'.$this->search.'%')
         ->orderBy('created_at','DESC')
-        ->paginate(10);
+        ->paginate(15);
         return view('livewire.admin.admin-photo-component',compact('photos','categories'))->layout('layouts.base');
     }
 }

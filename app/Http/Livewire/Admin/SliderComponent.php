@@ -14,7 +14,7 @@ class SliderComponent extends Component
 
     public function deleteSlide($id){
         $slide = Slide::find($id);
-        $path = 'storage/slide-slides/'.$slide->image;
+        $path = 'storage/slide-photos/'.$slide->image;
         if (File::exists($path)) {
             File::delete($path);
         }

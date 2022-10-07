@@ -17,6 +17,10 @@ use App\Http\Controllers\ViewPhotoDetailsController;
 use App\Http\Livewire\Admin\SliderComponent;
 use App\Http\Livewire\Admin\AddSliderComponent;
 use App\Http\Livewire\Admin\EditSliderComponent;
+use App\Http\Livewire\Admin\CollageComponent;
+use App\Http\Livewire\Admin\AddCollageComponent;
+use App\Http\Livewire\Admin\EditCollageComponent;
+use App\Http\Livewire\AboutComponent;
 
 /*
 |--------------------------------------------------------------------------
@@ -52,11 +56,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/admin/slide', SliderComponent::class)->name('admin.slides');
     Route::get('/admin/slide/add', AddSliderComponent::class)->name('admin.add-slide');
     Route::get('/admin/slide/edit/{name}', EditSliderComponent::class)->name('admin.edit-slide');
+
+    //collage
+    Route::get('/admin/collage', CollageComponent::class)->name('admin.collages');
+    Route::get('/admin/collage/add', AddCollageComponent::class)->name('admin.add-collage');
+    Route::get('/admin/collage/edit/{name}', EditCollageComponent::class)->name('admin.edit-collage');
 });
 
 
 Route::get('/', HomeComponent::class)->name('/');
 Route::get('/photos', PhotoComponent::class)->name('photo');
+Route::get('/about', AboutComponent::class)->name('about');
 // Route::get('/photos', HeaderSearchComponent::class)->name('searched-photos');
 
 Route::get('/photo/{slug}', [ViewPhotoDetailsController::class, 'viewPhotoDetails'])->name('view-photo-details');

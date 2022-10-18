@@ -20,6 +20,10 @@
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style.css')}}">
+        <link rel="stylesheet" href="{{asset('build/assets/app.4d7936ae.css')}}">
+
+        <script src="{{asset('build/assets/app.2b9a524e.js')}}"></script>
+
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 

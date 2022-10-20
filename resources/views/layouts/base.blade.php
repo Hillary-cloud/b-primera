@@ -26,7 +26,7 @@
         <script src="{{asset('build/assets/app.2b9a524e.js')}}"></script>
 
         <!-- Scripts -->
-        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+        {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
 
         <!-- Styles -->
         <style>

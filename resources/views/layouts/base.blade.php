@@ -7,6 +7,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
 
+        <script src="{{asset('assets/js/jquery/jquery.min.js')}}"></script>
         <!-- Fonts -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
@@ -20,12 +21,12 @@
             href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
         {{-- vite manifest --}}
-        {{-- <link rel="stylesheet" type="text/css" href="resources/sass/app.scss"> --}}
+        <link rel="stylesheet" type="text/css" href="{{asset('assets/scss/app.scss')}}">
         <link rel="stylesheet" href="{{asset('build/assets/app.4d7936ae.css')}}">
 
         <script src="{{asset('build/assets/app.2b9a524e.js')}}"></script>
-        {{-- <script src="resources/js/app.js"></script>
-        <script src="resources/js/bootstrap.js"></script> --}}
+        <script src="{{asset('assets/js/app.js')}}"></script>
+        <script src="{{asset('assets/js/bootstrap.js')}}"></script>
 
         <!-- Scripts -->
         {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
